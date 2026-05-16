@@ -11,90 +11,90 @@ variables:
 
 # knowledge-capture
 
-## 概述
+## Overview
 
-将临时性工作流产物（brainstorming specs/、writing-plans plans/ 以及开发过程记忆）中的有价值信息，提取到项目的持久化记录体系中。
+Extract valuable information from temporary workflow artifacts (brainstorming specs, writing-plans plans, and development session memory) into the project's permanent record system.
 
 ```
-输入 → 输出
-{specs_dir}（设计文档）          →  ADR（架构决策记录）
-{plans_dir}（实现计划）          →  TODO.md（待办追踪）
-代码变更                        →  {knowledge_dir}（领域知识库）
-开发过程记忆                    →  {sessions_dir}（项目史书）
+Input → Output
+{specs_dir} (design documents)          →  ADR (Architecture Decision Records)
+{plans_dir} (implementation plans)      →  TODO.md (task tracking)
+code changes                            →  {knowledge_dir} (domain knowledge)
+development session memory              →  {sessions_dir} (project history)
 ```
 
-## 前置依赖
+## Prerequisites
 
-此技能假设已按以下顺序完成前置工作流：
-1. **brainstorming** — 产生设计文档（写入 {specs_dir}）
-2. **writing-plans** — 产生实现计划（写入 {plans_dir}，默认为 `docs/superpowers/plans/`）
-3. **implementation** — 产生代码变更
+This skill assumes the following upstream workflows have been completed in order:
+1. **brainstorming** — produces design documents (written to {specs_dir})
+2. **writing-plans** — produces implementation plans (written to {plans_dir}, default `docs/superpowers/plans/`)
+3. **implementation** — produces code changes
 
-## 核心原则
+## Core Principles
 
-- **不修改原始 specs/plans** — 它们是本地工作文件，信息提取后保留原始状态
-- **不重复记录** — 设计决策的关键论证只入 ADR，session 不重复
-- **所有链接可工作** — 检查交叉引用
-- **路径可配置** — 通过 YAML front matter 中的 `variables` 调整输出目录
+- **Do not modify original specs/plans** — they are local working files; extract information and leave them untouched
+- **No duplicate recording** — key rationale for design decisions goes into ADR only; sessions do not repeat it
+- **All links must work** — verify cross-references
+- **Paths are configurable** — adjust output directories via `variables` in YAML front matter
 
-## 执行步骤
+## Execution Steps
 
-### 步骤 1：提取 ADR
+### Step 1: Extract ADRs
 
-扫描 `{specs_dir}` 中的设计文档，识别关键决策点。
+Scan design documents in `{specs_dir}` to identify key decision points.
 
-**每个关键决策点需同时满足**：
-- 有明确的选项对比（至少 2 个有效选项）
-- 对后续开发有约束力
-- 不是实现细节（如"用 for 还是 while"不算）
+**Each key decision point must satisfy all of**:
+- At least 2 viable options were explicitly compared
+- The decision constrains future development
+- It is not an implementation detail (e.g., "for vs while" does not count)
 
-将每条 ADR 保存为 `{adr_dir}/ADR-XXX-{简短标题}.md`，格式参见 [templates/adr-template.md](./templates/adr-template.md)。
+Save each ADR as `{adr_dir}/ADR-XXX-{short-title}.md`. Format: see [templates/adr-template.md](./templates/adr-template.md).
 
-### 步骤 2：更新知识库
+### Step 2: Update Knowledge Base
 
-从设计文档和实现代码中提取新的领域概念，写入 `{knowledge_dir}`。
+Extract new domain concepts from design documents and implementation code. Write to `{knowledge_dir}`.
 
-**典型内容**：DSL 语法规范、DDD 架构约定、模块间依赖规则、关键术语定义、命名规范。
+**Typical content**: DSL syntax specification, DDD architecture conventions, module dependency rules, key term definitions, naming conventions.
 
-格式参见 [templates/knowledge-template.md](./templates/knowledge-template.md)。
+Format: see [templates/knowledge-template.md](./templates/knowledge-template.md).
 
-### 步骤 3：编写 Session
+### Step 3: Write Session
 
-新建项目史书记录 `{sessions_dir}`（序号 = 当前最大 + 1）。只记录"做成了什么"和"踩了什么坑"，设计论证指向 ADR。
+Create a new project history record in `{sessions_dir}` (sequence number = current max + 1). Record only "what was accomplished" and "lessons learned". Point design rationale to ADRs.
 
-格式参见 [templates/session-template.md](./templates/session-template.md)。
+Format: see [templates/session-template.md](./templates/session-template.md).
 
-### 步骤 4：更新 TODO.md
+### Step 4: Update TODO.md
 
-将 session 中"产生的待办"汇总到 `{todo_file}`，按模块/优先级分组。已有 TODO 做增量更新：新增待办标记 ⏳，已完成标记 ✅。
+Aggregate TODOs generated during the session into `{todo_file}`, grouped by module/priority. For existing TODOs, do incremental updates: add new ones with ⏳, mark completed with ✅.
 
-### 步骤 5：交叉引用检查
+### Step 5: Cross-reference Check
 
-- Session → ADR（session 头部的关键决策字段）
-- ADR → Source Spec（ADR 的"来源"字段）
-- Knowledge → ADR/Session（知识的"相关参考"字段）
+- Session → ADR (key decision field in session header)
+- ADR → Source Spec (ADR's "source" field)
+- Knowledge → ADR/Session (knowledge's "related references" field)
 
-### 步骤 6：Commit
+### Step 6: Commit
 
-检查当前目录是否在 git 仓库中，如果是则执行：
+Check if the current directory is a git repository. If yes, execute:
 
 ```bash
 git add {adr_dir}/ {sessions_dir}/ {knowledge_dir}/ {todo_file}
-git commit -m "docs: 知识捕获 - {阶段描述}"
+git commit -m "docs: knowledge capture - {description}"
 ```
 
-如不在 git 仓库中，提示用户手动执行版本控制。
+If not in a git repository, prompt the user to manually set up version control.
 
-## 路径配置说明
+## Path Configuration
 
-中的所有路径均通过 SKILL.md 的 YAML front matter 中 `variables` 字段配置。Superpowers 用户可直接使用默认值；非 Superpowers 用户可根据项目结构修改路径变量。
+All paths are configured via the `variables` field in the YAML front matter of SKILL.md. Superpowers users can use the defaults directly; non-Superpowers users can modify path variables to match their project structure.
 
-## 常见错误
+## Common Mistakes
 
-| 错误 | 后果 | 正确做法 |
-|------|------|---------|
-| 在 session 中重复记录 ADR 内容 | 多处维护，信息不一致 | session 只叙事，ADR 只决策 |
-| 修改 specs/plans 本地文件 | 工作流历史丢失 | 不动 specs/plans，信息提取到持久化体系 |
-| 只写 session 不写 ADR | 决策原因不可回溯 | 每个有选项对比的决策都提炼 ADR |
-| ADR 缺少"被否决选项" | 不知道为什么否决 B | 明确记录每个选项的被否决原因 |
-| 忘记更新 TODO.md | 待办沉底无人跟进 | 每次强制更新 TODO.md |
+| Mistake | Consequence | Correct Approach |
+|---------|------------|------------------|
+| Repeating ADR content in sessions | Multiple maintenance points, inconsistent info | Sessions only narrate; ADRs only decide |
+| Modifying specs/plans working files | Workflow history lost | Leave specs/plans untouched; extract to permanent system |
+| Writing sessions without ADRs | Decision rationale becomes untraceable | Extract every decision with option comparison into ADR |
+| ADR missing "rejected options" | Unknown why option B was rejected | Clearly record why each option was rejected |
+| Forgetting to update TODO.md | TODOs sink and no one follows up | Force-update TODO.md every time |
