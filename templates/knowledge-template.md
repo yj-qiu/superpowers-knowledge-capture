@@ -1,11 +1,11 @@
-# {主题名}
+# {Topic Name}
 
-**定义**: {一句话定义}
+**Definition**: {one-sentence definition}
 
-**适用范围**: {用于什么场景}
+**Scope**: {which scenarios it applies to}
 
-**规范/约定**: {具体内容}
+**Conventions**: {specific rules or guidelines}
 
-**示例**: {代码或配置示例}
+**Examples**: {code or config examples}
 
-**相关参考**: [ADR-XXX], [Session XX]
+**Related References**: [ADR-XXX], [Session XX]
