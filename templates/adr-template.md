@@ -1,19 +1,19 @@
-# ADR-XXX: {决策标题}
+# ADR-XXX: {Decision Title}
 
-**日期**: YYYY-MM-DD
-**来源**: {brainstorming spec 的文件路径}
+**Date**: YYYY-MM-DD
+**Source**: {brainstorming spec file path}
 
-**上下文**: {什么场景/问题触发这个决策}
+**Context**: {what scenario or problem triggered this decision}
 
-**选项**:
-  - A：{选项描述}
-  - B：{选项描述}
+**Options**:
+  - A: {option description}
+  - B: {option description}
 
-**决策**: {选择了哪个选项}
+**Decision**: {which option was chosen}
 
-**理由**: {为什么选它，1-3 条核心理由}
+**Rationale**: {why it was chosen, 1-3 core reasons}
 
-**被否决选项的原因**:
-  - B：{为什么不选}
+**Rejected Options**:
+  - B: {why not chosen}
 
-**影响**: {实现后产生了哪些影响或约束}
+**Impact**: {constraints or effects introduced by this decision}
