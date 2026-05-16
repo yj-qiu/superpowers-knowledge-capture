@@ -11,7 +11,7 @@ Extract valuable information from temporary workflow artifacts (design specs, im
 
 ## Prerequisites / 前提条件
 
-- **Superpowers users**: This skill requires [Superpowers](https://github.com/yj-qiu/superpowers) skill framework. Clone this repo into your `.trae/skills/` directory.
+- **Superpowers users**: This skill requires [Superpowers](https://github.com/yj-qiu/superpowers) skill framework. Clone this repo into your skills directory.
 - **Standalone users**: No framework needed. Use the templates directly with your own directory structure.
 
 ---
@@ -22,7 +22,7 @@ Extract valuable information from temporary workflow artifacts (design specs, im
 
 ```bash
 # Clone into your Superpowers skills directory
-cd your-project/.trae/skills/
+cd your-project/skills/
 git clone https://github.com/yj-qiu/superpowers-knowledge-capture.git knowledge-capture
 ```
 
