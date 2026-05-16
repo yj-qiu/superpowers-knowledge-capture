@@ -95,12 +95,10 @@ brainstorming → writing-plans → implementation → knowledge-capture
 
 ## Gitee 镜像
 
-本仓库已镜像到 Gitee，方便国内用户访问：
+本仓库同时托管在 GitHub 和 Gitee：
 
-- **GitHub**（主仓库）：`https://github.com/yj-qiu/superpowers-knowledge-capture`
-- **Gitee**（镜像）：`https://gitee.com/buming_j/superpowers-knowledge-capture`
-
-Issue 和 PR 请提交到 GitHub。
+- **GitHub**：`https://github.com/yj-qiu/superpowers-knowledge-capture`
+- **Gitee**：`https://gitee.com/buming_j/superpowers-knowledge-capture`
 
 ---
 

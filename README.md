@@ -98,12 +98,10 @@ When used within Superpowers, the SKILL.md file is read by the AI assistant to a
 
 ## Mirror Repository / 镜像仓库
 
-This repository is mirrored to Gitee for users in China:
+This repository is available on both GitHub and Gitee:
 
-- **GitHub** (primary): `https://github.com/yj-qiu/superpowers-knowledge-capture`
-- **Gitee** (mirror): `https://gitee.com/buming_j/superpowers-knowledge-capture`
-
-Issues and PRs should be submitted on GitHub.
+- **GitHub**: `https://github.com/yj-qiu/superpowers-knowledge-capture`
+- **Gitee**: `https://gitee.com/buming_j/superpowers-knowledge-capture`
 
 ---
 
