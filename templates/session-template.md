@@ -1,27 +1,25 @@
-# Session XX: {主题}
+# Session XX: {Title}
 
-**日期**: YYYY-MM-DD
-**关键决策**: [ADR-001, ADR-003]
-**阶段**: {阶段/任务编号}
+**Date**: YYYY-MM-DD
+**Key Decisions**: [ADR-001, ADR-003]
+**Phase**: {phase/task number}
 
 ---
 
-## 成果摘要
+## Summary
 
-## 详细结论
+{what was accomplished, key code snippets, implementation details}
 
-{完成的工作、关键代码片段、实现细节}
+## Lessons Learned
 
-## 经验教训
+{workflow issues, toolchain experience, pitfalls, etc.}
 
-{工作流问题、工具链体验、踩坑记录等非代码知识}
+## TODOs
 
-## 产生的待办
+| TODO | Module | Priority |
+|------|--------|----------|
 
-| 待办 | 模块 | 优先级 |
-|------|------|--------|
-
-## 交叉引用
+## Cross-references
 
 - ADR: [ADR-001](./{adr_dir}/ADR-001-xxx.md)
-- 设计文档: [spec 文件名](./{specs_dir}/XXX.md)
+- Design Doc: [spec filename](./{specs_dir}/XXX.md)
