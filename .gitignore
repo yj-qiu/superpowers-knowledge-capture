@@ -8,3 +8,6 @@ Thumbs.db
 .trae/
 *.swp
 *.swo
+
+# local files
+docs/superpowers/
