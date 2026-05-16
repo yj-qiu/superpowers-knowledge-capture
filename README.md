@@ -11,7 +11,7 @@ Extract valuable information from temporary workflow artifacts (design specs, im
 
 ## Prerequisites / 前提条件
 
-- **Superpowers users**: This skill requires [Superpowers](https://github.com/your-org/superpowers) skill framework. Clone this repo into your `.trae/skills/` directory.
+- **Superpowers users**: This skill requires [Superpowers](https://github.com/yj-qiu/superpowers) skill framework. Clone this repo into your `.trae/skills/` directory.
 - **Standalone users**: No framework needed. Use the templates directly with your own directory structure.
 
 ---
@@ -23,7 +23,7 @@ Extract valuable information from temporary workflow artifacts (design specs, im
 ```bash
 # Clone into your Superpowers skills directory
 cd your-project/.trae/skills/
-git clone https://github.com/your-org/superpowers-knowledge-capture.git knowledge-capture
+git clone https://github.com/yj-qiu/superpowers-knowledge-capture.git knowledge-capture
 ```
 
 Then invoke the skill at the end of a work cycle:
@@ -33,7 +33,7 @@ Then invoke the skill at the end of a work cycle:
 
 ```bash
 # Clone anywhere
-git clone https://github.com/your-org/superpowers-knowledge-capture.git
+git clone https://github.com/yj-qiu/superpowers-knowledge-capture.git
 cd superpowers-knowledge-capture
 
 # Create the output directories in your project
@@ -100,8 +100,8 @@ When used within Superpowers, the SKILL.md file is read by the AI assistant to a
 
 This repository is mirrored to Gitee for users in China:
 
-- **GitHub** (primary): `https://github.com/your-org/superpowers-knowledge-capture`
-- **Gitee** (mirror): `https://gitee.com/your-org/superpowers-knowledge-capture`
+- **GitHub** (primary): `https://github.com/yj-qiu/superpowers-knowledge-capture`
+- **Gitee** (mirror): `https://gitee.com/buming_j/superpowers-knowledge-capture`
 
 Issues and PRs should be submitted on GitHub.
 
