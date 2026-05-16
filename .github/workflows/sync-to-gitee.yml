@@ -1,0 +1,17 @@
+name: Sync to Gitee
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Sync to Gitee
+        uses: Yikun/gitee-mirror-action@v1.4
+        with:
+          src: github/yj-qiu/superpowers-knowledge-capture
+          dst: gitee/buming_j/superpowers-knowledge-capture
+          dst_key: ${{ secrets.GITEE_PRIVATE_KEY }}
+          dst_token: ${{ secrets.GITEE_TOKEN }}
